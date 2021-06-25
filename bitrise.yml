@@ -80,6 +80,7 @@ workflows:
         inputs:
         - api_level: $EMU_VER
         - tag: "default"
+        - emulator_channel: 1
     - script:
         inputs:
         - content: |
