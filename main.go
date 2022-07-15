@@ -131,6 +131,7 @@ type phase struct {
 }
 
 func main() {
+	failf("This Step should fail instantly, and display an extra error message if it is run on Apple Silicon, but not if run on Intel.")
 	var cfg config
 	if err := stepconf.Parse(&cfg); err != nil {
 		failf("Issue with input: %s", err)
