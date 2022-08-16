@@ -160,12 +160,12 @@ func main() {
 	}
 
 	var (
-		sdkManagerPath = filepath.Join(cmdlineToolsPath, "sdkmanager")
+		// sdkManagerPath = filepath.Join(cmdlineToolsPath, "sdkmanager")
 		avdManagerPath = filepath.Join(cmdlineToolsPath, "avdmanager")
 		emulatorPath   = filepath.Join(androidHome, "emulator", "emulator")
 
 		pkg     = fmt.Sprintf("system-images;android-%d;%s;%s", cfg.APILevel, cfg.Tag, cfg.Abi)
-		yes, no = strings.Repeat("yes\n", 20), strings.Repeat("no\n", 20)
+		// yes, no = strings.Repeat("yes\n", 20), strings.Repeat("no\n", 20)
 	)
 
 	// parse custom flags
