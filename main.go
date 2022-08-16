@@ -182,12 +182,14 @@ func main() {
 		{
 			"Updating emulator",
 			// command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, "emulator").
+			command.New("echo").
 			SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
 		},
 
 		{
 			"Updating system-image packages",
 			// command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, pkg).
+			command.New("echo").
 			SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
 		},
 
