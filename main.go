@@ -180,15 +180,15 @@ func main() {
 
 	for _, phase := range []phase{
 		{
-			"Updating emulator",
-			command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, "emulator").
-				SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
+			// "Updating emulator",
+			// command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, "emulator").
+			//	SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
 		},
 
 		{
-			"Updating system-image packages",
-			command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, pkg).
-				SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
+			// "Updating system-image packages",
+			// command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, pkg).
+			//	SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
 		},
 
 		{
