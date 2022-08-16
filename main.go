@@ -160,12 +160,12 @@ func main() {
 	}
 
 	var (
-		// sdkManagerPath = filepath.Join(cmdlineToolsPath, "sdkmanager")
+		sdkManagerPath = filepath.Join(cmdlineToolsPath, "sdkmanager")
 		avdManagerPath = filepath.Join(cmdlineToolsPath, "avdmanager")
 		emulatorPath   = filepath.Join(androidHome, "emulator", "emulator")
 
 		pkg     = fmt.Sprintf("system-images;android-%d;%s;%s", cfg.APILevel, cfg.Tag, cfg.Abi)
-		// yes, no = strings.Repeat("yes\n", 20), strings.Repeat("no\n", 20)
+		yes, no = strings.Repeat("yes\n", 20), strings.Repeat("no\n", 20)
 		no = strings.Repeat("no\n", 20)
 	)
 
@@ -181,15 +181,15 @@ func main() {
 
 	for _, phase := range []phase{
 		{
-			// "Updating emulator",
+			"Updating emulator",
 			// command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, "emulator").
-			//	SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
+			SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
 		},
 
 		{
-			// "Updating system-image packages",
+			"Updating system-image packages",
 			// command.New(sdkManagerPath, "--verbose", "--channel="+cfg.EmulatorChannel, pkg).
-			//	SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
+			SetStdin(strings.NewReader(yes)), // hitting yes in case it waits for accepting license
 		},
 
 		{
@@ -205,11 +205,11 @@ func main() {
 		},
 	} {
 		log.Infof(phase.name)
-		// log.Donef("$ %s", phase.command.PrintableCommandArgs())
+		log.Donef("$ %s", phase.command.PrintableCommandArgs())
 
-		// if out, err := phase.command.RunAndReturnTrimmedCombinedOutput(); err != nil {
-		//	failf("Failed to run phase: %s, output: %s", err, out)
-		// }
+		if out, err := phase.command.RunAndReturnTrimmedCombinedOutput(); err != nil {
+			failf("Failed to run phase: %s, output: %s", err, out)
+		}
 
 		fmt.Println()
 	}
