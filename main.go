@@ -166,7 +166,6 @@ func main() {
 
 		pkg     = fmt.Sprintf("system-images;android-%d;%s;%s", cfg.APILevel, cfg.Tag, cfg.Abi)
 		yes, no = strings.Repeat("yes\n", 20), strings.Repeat("no\n", 20)
-		no = strings.Repeat("no\n", 20)
 	)
 
 	// parse custom flags
